@@ -4,7 +4,6 @@ import todo from "../api/todo";
 class Listing extends React.Component {
   state = {};
   handleDelete = async (num) => {
-    console.log(num);
     const url = "/" + this.props.user._id + "/delete";
 
     const response = await todo.get(url, {
@@ -26,11 +25,8 @@ class Listing extends React.Component {
 
     var tasks = mid.map((task) => {
       return (
-          <div className="item" style={{margin:"20px 20px"}}>
-      
+        <div className="item" style={{ margin: "20px 20px" }}>
           {task.title}{" "}
-         
-          
           <button
             className="ui red button small right floated"
             onClick={(event) => {
@@ -39,19 +35,20 @@ class Listing extends React.Component {
           >
             <i className="trash alternate outline icon"></i>
           </button>
-          <hr/>
-          </div>
-        
+          <hr />
+        </div>
       );
     });
     return (
       <div>
-          <h1><center>TASKS TODO</center></h1>
+        <h1>
+          <center>TASKS TODO</center>
+        </h1>
         <form className="ui inline form" onSubmit={this.handleAdd}>
           <div className="fields">
             <div className="field">
               <input
-                style={{margin:"0px 10px"}}
+                style={{ margin: "0px 10px" }}
                 type="text"
                 name="newtodo"
                 onChange={(event) => {
@@ -66,7 +63,7 @@ class Listing extends React.Component {
             </div>
           </div>
         </form>
-        <br/>
+        <br />
         <div className="ui list ">{tasks}</div>
       </div>
     );

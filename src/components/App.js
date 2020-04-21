@@ -6,7 +6,7 @@ class App extends React.Component {
   state={User:{},logged:false,error:""};
 
     handleParams= async (term)=> {
-    console.log(term)
+    
     var data = {
       username: term.username,
       password: term.password,
@@ -24,8 +24,7 @@ class App extends React.Component {
       {
         this.setState({error:this.state.User.toString()})
       }
-      console.log(response.data)
-      console.log(this.state.User)
+      
   }
   render() {
     if(!this.state.logged)
